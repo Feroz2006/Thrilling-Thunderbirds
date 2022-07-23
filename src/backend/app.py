@@ -1,7 +1,8 @@
-from pymongo import MongoClient
 import os
 import pprint
+
 from dotenv import load_dotenv
+from pymongo import MongoClient
 
 load_dotenv()
 
