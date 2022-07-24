@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 .leftCol,
 .rightCol {
@@ -25,11 +25,11 @@ body {
   justify-content: space-evenly;
   width: 50%;
   height: 100%;
-  border: 2px solid red;
 }
 .rightCol img {
-  width: 100%;
+  width: 115%;
   height: auto;
+  z-index: -10;
 }
 .title {
   width: 80%;
@@ -48,6 +48,18 @@ body {
   font-family: monospace;
   font-weight: 900;
   font-size: 3rem;
+  background-image: -webkit-linear-gradient(
+    left,
+    #3f4fba,
+    #b24fff,
+    #5affba,
+    #b24fff,
+    #3f4fba
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: rgb(10, 10, 57);
 }
 form {
   display: flex;
@@ -91,7 +103,11 @@ form input:focus {
 #rules {
   background-image: url("./images/rules.svg");
   height: 2rem;
+  margin-left: 1rem;
 }
 #rules:hover {
   filter: hue-rotate(70deg);
+}
+.space {
+  width: 35%;
 }
