@@ -1,0 +1,71 @@
+// font imports
+@import url("http://fonts.cdnfonts.com/css/primer-print");
+
+// global styles
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// custom styles
+@import "./baselayout.scss";
+
+// variable inits
+$cinder: #171622;
+$porclain: #eaeff0;
+$bright-turquoise: #11ece5;
+$ebony-clay: #2d3045;
+$mirage: #191a2b;
+$scarpa-flow: #2b2b38;
+
+// top level
+html,
+body {
+  background-color: $cinder;
+  color: $porclain;
+  font-family: "Primer Print", serif;
+}
+
+// background colors
+.bg-cinder {
+  background-color: $cinder;
+}
+
+.bg-ebony-clay {
+  background-color: $ebony-clay !important;
+}
+
+.bg-scarpa-flow {
+  background-color: $scarpa-flow !important;
+}
+
+.bg-mirage {
+  background-color: $mirage !important;
+}
+
+.bg-porclain {
+  background-color: $porclain !important;
+}
+
+// text colors
+.text-porclain {
+  color: $porclain !important;
+}
+
+.text-bright-turquoise {
+  color: $bright-turquoise !important;
+}
+
+.text-red {
+  color: red;
+}
+
+// utils
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.vh-80 {
+  height: 80vh;
+}
+
+.bg-filter {
+  backdrop-filter: blur(1px);
+}
