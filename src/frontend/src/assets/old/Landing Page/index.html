@@ -31,9 +31,15 @@
         </div>
       </div>
       <div class="rightCol">
-        <img src="./images/banner.png" />
+        <img src="./images/banner1.png" />
       </div>
+      <audio id="myAudio" hidden="True" controls autoplay loop>
+        <source src="./audio.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="button" id="no_sound" onclick="playAudio()">.</div>
+      <div class="button" id="sound" onclick="pauseAudio()">.</div>
     </div>
+
     <script src="logic.js"></script>
   </body>
 </html>
