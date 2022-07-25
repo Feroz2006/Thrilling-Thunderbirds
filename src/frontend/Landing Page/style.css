@@ -27,9 +27,11 @@ body {
   height: 100%;
 }
 .rightCol img {
-  width: 115%;
+  max-height: 90vh;
+  width: 120%;
   height: auto;
   z-index: -10;
+  margin-left: -15%;
 }
 .title {
   width: 80%;
