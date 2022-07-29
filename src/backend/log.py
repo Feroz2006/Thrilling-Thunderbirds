@@ -1,4 +1,4 @@
-from logging import DEBUG, FileHandler, Formatter, getLogger, Logger
+import logging
 from pathlib import Path
 from typing import Literal
 
@@ -11,17 +11,17 @@ class UnknownLogMode(Exception):
 
 LOG_FILE_MODES = {'connection': 'connection.log', 'setup': 'setup.log', 'game': 'game_info.log'}
 
-DEFAULT_FORMAT = Formatter(fmt='%(asctime)s | %(name)s | %(levelname)s | %(message)s', datefmt='%Y-%b-%d %H:%M:%S')
+DEFAULT_FORMAT = logging.Formatter(fmt='%(asctime)s | %(name)s | %(levelname)s | %(message)s', datefmt='%Y-%b-%d %H:%M:%S')
 
-DEFAULT_LOG_LEVEL = DEBUG
+DEFAULT_LOG_LEVEL = logging.DEBUG
 
 
 def get_logger(
     name: str,
     mode: Literal['connection', 'setup', 'game'],
     *,
-    log_format: Formatter = DEFAULT_FORMAT
-) -> Logger:
+    log_format: logging.Formatter = DEFAULT_FORMAT
+) -> logging.Logger:
     """
     Base logger for the application.
     
@@ -54,10 +54,10 @@ def get_logger(
         file = Path('logs', LOG_FILE_MODES[mode])
     except KeyError:
         raise UnknownLogMode(mode) from None
-    handler = FileHandler(file)
+    handler = logging.FileHandler(file)
     handler.setFormatter(log_format)
     
-    log = getLogger(name)
+    log = logging.getLogger(name)
     log.level = DEFAULT_LOG_LEVEL
     log.addHandler(handler)
     
