@@ -32,3 +32,6 @@ build/
 
 #nodejs
 nodemodules/
+
+#logs
+/src/backend/logs/
