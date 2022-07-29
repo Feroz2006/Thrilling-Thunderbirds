@@ -2,14 +2,6 @@ import logging
 from pathlib import Path
 from typing import Literal
 
-
-class UnknownLogMode(Exception):
-    """Raised when unknown log mode is passed"""
-
-    def __init__(self, mode: str) -> None:
-        super().__init__(f'Excepted anyone of `{", ".join(LOG_FILE_MODES)}`, received `{mode}`')
-
-
 LOG_FILE_MODES = {
     'connection': 'connection.log',
     'setup': 'setup.log',
@@ -20,6 +12,13 @@ DEFAULT_FORMAT = logging.Formatter(
     datefmt='%Y-%b-%d %H:%M:%S'
 )
 DEFAULT_LOG_LEVEL = logging.DEBUG
+
+
+class UnknownLogMode(Exception):
+    """Raised when unknown log mode is passed"""
+
+    def __init__(self, mode: str) -> None:
+        super().__init__(f'Expected anyone of `{", ".join(LOG_FILE_MODES)}` but received `{mode}`')
 
 
 def get_logger(
@@ -60,6 +59,7 @@ def get_logger(
         file = Path('logs', LOG_FILE_MODES[mode])
     except KeyError:
         raise UnknownLogMode(mode) from None
+
     handler = logging.FileHandler(file)
     handler.setFormatter(log_format)
 
